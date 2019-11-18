@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -32,7 +33,7 @@ public class TeacherCtrl {
 
     @PostMapping("/add")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Teacher addTeacher(@RequestBody Teacher teacher)
+    public Teacher addTeacher(@Valid @RequestBody Teacher teacher)
     {
         return teacherService.addTeacher(teacher);
     }
